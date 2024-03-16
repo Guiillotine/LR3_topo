@@ -41,3 +41,9 @@ vector2d MatrCalc::mult(vector2d matr1, vector2d matr2) {
                           {14,14,14},
                           {18,18,18} });
 }
+
+vector2d MatrCalc::multOnNum(vector2d matr, double num) {
+    return vector2d({ {3.5,7,10.5,14},
+                   {7,10.5,14,17.5},
+                   {10.5,14,17.5,21} });
+}
