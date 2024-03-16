@@ -58,7 +58,23 @@ BOOST_FIXTURE_TEST_CASE(AddRegToNegativeTest, Fixture)
     MATRIXES_CHECK_EQUAL(mcalc->add(matr1, matr2), result);
 }
 
+BOOST_FIXTURE_TEST_CASE(SubRegFromRegTest, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Subtraction regular matrix from regular matrix");
+    vector2d matr1 = { {1,2,3,4},
+                       {5,6,7,8},
+                       {9,10,11,12} },
 
+            matr2 = { {1,1,2,2},
+                      {2,2,3,3},
+                      {4,4,5,5} },
+
+            result = { {0,1,1,2},
+                       {3,4,4,5},
+                       {5,6,6,7} };
+
+    MATRIXES_CHECK_EQUAL(mcalc->sub(matr1, matr2), result);
+}
 
 
 
