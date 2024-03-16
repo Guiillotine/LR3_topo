@@ -165,6 +165,20 @@ BOOST_FIXTURE_TEST_CASE(MultOnNum, Fixture)
     MATRIXES_CHECK_EQUAL(mcalc->multOnNum(matr, num), result);
 }
 
+BOOST_FIXTURE_TEST_CASE(MultOnNullNum, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Multiplying a matrix by a number");
+    vector2d matr = { {1,2,3,4},
+                      {2,3,4,5},
+                      {3,4,5,6} },
+
+        result = { {0,0,0,0},
+                   {0,0,0,0},
+                   {0,0,0,0} };
+    double num = 0;
+
+    MATRIXES_CHECK_EQUAL(mcalc->multOnNum(matr, num), result);
+}
 
 
 
