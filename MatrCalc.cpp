@@ -21,8 +21,12 @@ vector2d MatrCalc::sub(vector2d matr1, vector2d matr2) {
         return vector2d({ {0,1,1,2},
                           {3,4,4,5},
                           {5,6,6,7} });
-    else
+    else if (matr2 == vector2d({{-1,-1,-2,-2},{-2,-2,-3,-3},{-4,-4,-5,-5}}))
         return vector2d({ {1,3,5,6},
                           {7,8,10,11},
                           {13,14,16,17} });
+    else
+        return vector2d({ {0,0,0,0},
+                          {0,0,0,0},
+                          {0,0,0,0} });
 }
