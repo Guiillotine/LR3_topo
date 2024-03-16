@@ -12,6 +12,7 @@ public:
 	vector2d sub(vector2d matr1, vector2d matr2);
 	vector2d mult(vector2d matr1, vector2d matr2);
 	vector2d multOnNum(vector2d matr, double num);
+	vector2d T(vector2d matr);
 
 private:
 

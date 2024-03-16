@@ -53,3 +53,10 @@ vector2d MatrCalc::multOnNum(vector2d matr, double num) {
                            {0,0,0,0},
                            {0,0,0,0} });
 }
+
+vector2d MatrCalc::T(vector2d matr) {
+    return vector2d({ {1,5,9},
+                      {2,6,10},
+                      {3,7,11},
+                      {4,8,12} });
+}
