@@ -150,6 +150,21 @@ BOOST_FIXTURE_TEST_CASE(MultNegativeMatricesTest, Fixture)
     MATRIXES_CHECK_EQUAL(mcalc->mult(matr1, matr2), result);
 }
 
+BOOST_FIXTURE_TEST_CASE(MultOnNum, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Multiplying a matrix by a number");
+    vector2d matr = { {1,2,3,4},
+                      {2,3,4,5},
+                      {3,4,5,6} },
+
+        result = { {3.5,7,10.5,14},
+                   {7,10.5,14,17.5},
+                   {10.5,14,17.5,21} };
+    double num = 3.5;
+
+    MATRIXES_CHECK_EQUAL(mcalc->multOnNum(matr, num), result);
+}
+
 
 
 
