@@ -198,6 +198,7 @@
     <ClCompile Include="LR3.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugTestMatrixCalc|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="MatrCalc.cpp" />
     <ClCompile Include="TestMatrixCalc.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -206,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MatrCalc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
