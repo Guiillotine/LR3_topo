@@ -112,6 +112,25 @@ BOOST_FIXTURE_TEST_CASE(SubEqualMatricesTest, Fixture)
     MATRIXES_CHECK_EQUAL(mcalc->sub(matr1, matr2), result);
 }
 
+BOOST_FIXTURE_TEST_CASE(MultRegMatricesTest, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Multiplication of regular matrices");
+    vector2d matr1 = { {1,2,3,4},
+                       {2,3,4,5},
+                       {3,4,5,6} },
+
+             matr2 = { {2,1,2},
+                       {1,2,1},
+                       {2,3,3},
+                       {3,4,2} },
+
+             result = { {22,30,21},
+                        {30,40,29},
+                        {38,50,37} };
+
+    MATRIXES_CHECK_EQUAL(mcalc->mult(matr1, matr2), result);
+}
+
 
 
 
