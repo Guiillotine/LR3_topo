@@ -40,6 +40,27 @@ BOOST_FIXTURE_TEST_CASE(AddRegToRegTest, Fixture)
     MATRIXES_CHECK_EQUAL(mcalc->add(matr1,matr2),result);
 }
 
+BOOST_FIXTURE_TEST_CASE(AddRegToNegativeTest, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Add regular matrix to negative matrix");
+    vector2d matr1 = { {1,2,1,2},
+                       {3,4,3,4},
+                       {5,6,5,6} },
+
+             matr2 = { {-1,-1,-1,-1},
+                       {-4,-3,-4,-3},
+                       {-10,-10,-10,-10} },
+
+             result = { {0,1,0,1},
+                        {-1,1,-1,1},
+                        {-5,-4,-5,-4} };
+
+    MATRIXES_CHECK_EQUAL(mcalc->add(matr1, matr2), result);
+}
+
+
+
+
 
 
 
