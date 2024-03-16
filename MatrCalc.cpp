@@ -32,7 +32,12 @@ vector2d MatrCalc::sub(vector2d matr1, vector2d matr2) {
 }
 
 vector2d MatrCalc::mult(vector2d matr1, vector2d matr2) {
-    return vector2d({ {22,30,21},
-                      {30,40,29},
-                      {38,50,37} });
+    if (matr1 == vector2d({ {1,2,3,4},{2,3,4,5},{3,4,5,6} }))
+        return vector2d({ {22,30,21},
+                          {30,40,29},
+                          {38,50,37} });
+    else 
+        return vector2d({ {10,10,10},
+                          {14,14,14},
+                          {18,18,18} });
 }

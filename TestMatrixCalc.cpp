@@ -131,6 +131,25 @@ BOOST_FIXTURE_TEST_CASE(MultRegMatricesTest, Fixture)
     MATRIXES_CHECK_EQUAL(mcalc->mult(matr1, matr2), result);
 }
 
+BOOST_FIXTURE_TEST_CASE(MultNegativeMatricesTest, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Multiplication of negative matrices");
+    vector2d matr1 = { {-1,-2,-3,-4},
+                       {-2,-3,-4,-5},
+                       {-3,-4,-5,-6} },
+
+             matr2 = { {-1,-1,-1},
+                       {-1,-1,-1},
+                       {-1,-1,-1},
+                       {-1,-1,-1} },
+
+             result = { {10,10,10},
+                        {14,14,14},
+                        {18,18,18} };
+
+    MATRIXES_CHECK_EQUAL(mcalc->mult(matr1, matr2), result);
+}
+
 
 
 
