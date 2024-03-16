@@ -2,18 +2,16 @@
 #include <boost/test/included/unit_test.hpp>
 #include "MatrCalc.h"
 
-void MATRIXES_CHECK_EQUAL(matrix matr1, matrix matr2);
-void MATRIXES_CHECK_CLOSE(matrix matr1, matrix matr2, double percent);
+void MATRIXES_CHECK_EQUAL(vector2d matr1, vector2d matr2);
+void MATRIXES_CHECK_CLOSE(vector2d matr1, vector2d matr2, double percent);
 
 struct Fixture
 {
-	Fixture() {
-        MatrCalc* mcalc = new MatrCalc();
-    }
+	Fixture() {}
 	~Fixture() {
         delete mcalc;
     }
-    MatrCalc* mcalc;
+    MatrCalc* mcalc = new MatrCalc();
 };
 
 BOOST_AUTO_TEST_CASE(MatrCalcCreationTest)
