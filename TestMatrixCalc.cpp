@@ -167,7 +167,7 @@ BOOST_FIXTURE_TEST_CASE(MultOnNum, Fixture)
 
 BOOST_FIXTURE_TEST_CASE(MultOnNullNum, Fixture)
 {
-    BOOST_TEST_MESSAGE("TEST: Multiplying a matrix by a number");
+    BOOST_TEST_MESSAGE("TEST: Multiplying a matrix by a null");
     vector2d matr = { {1,2,3,4},
                       {2,3,4,5},
                       {3,4,5,6} },
