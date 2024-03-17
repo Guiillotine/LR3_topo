@@ -83,3 +83,8 @@ bool MatrCalc::checkRowsColsNumEqual(vector2d matr1, vector2d matr2) {
         return true;
     else return false;
 }
+
+bool MatrCalc::checkCols1AndRows2Equal(vector2d matr1, vector2d matr2) {
+    //todo реализовать метод позднее до конца
+    return true;
+}
