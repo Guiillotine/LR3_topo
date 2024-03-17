@@ -299,6 +299,14 @@ BOOST_FIXTURE_TEST_CASE(IsSquare, Fixture)
 
     BOOST_CHECK(mcalc->checkIsSquare(matr) == true);
 }
+BOOST_FIXTURE_TEST_CASE(IsNotSquare, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: The matrix is NOT square");
+    vector2d matr = { {1,2,3},
+                      {4,5,6} };
+
+    BOOST_CHECK(mcalc->checkIsSquare(matr) == false);
+}
 
 
 
