@@ -14,6 +14,7 @@ public:
 	vector2d multOnNum(vector2d matr, double num);
 	vector2d T(vector2d matr);
 	double det(vector2d matr);
+	vector2d inverse(vector2d matr);
 
 private:
 

@@ -68,3 +68,9 @@ double MatrCalc::det(vector2d matr) {
         return -3;
     else return 0;
 }
+
+vector2d MatrCalc::inverse(vector2d matr) {
+    return vector2d({ {-2 / 3,-4 / 3,1},
+                      {-2 / 3,11 / 3,-2},
+                      {1,-2,1} });
+}

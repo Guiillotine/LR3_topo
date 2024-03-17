@@ -230,7 +230,7 @@ BOOST_FIXTURE_TEST_CASE(findInverseMatrix, Fixture)
                        {-2/3,11/3,-2},
                        {1,-2,1} };
 
-    BOOST_CHECK_CLOSE(mcalc->inverse(matr), result, 0.5);
+    MATRIXES_CHECK_CLOSE(mcalc->inverse(matr), result, 0.5);
 }
 
 
