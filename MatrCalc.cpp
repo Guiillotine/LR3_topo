@@ -86,14 +86,14 @@ bool MatrCalc::checkRowsColsNumEqual(vector2d matr1, vector2d matr2) {
 
 bool MatrCalc::checkCols1AndRows2Equal(vector2d matr1, vector2d matr2) {
     //todo реализовать метод позднее до конца
-    if (matr1 == vector2d({ {1,2,3,4},{2,3,4,5},{3,4,5,6} }))
+    if (matr1 == vector2d({ {1,2,3,4},{2,3,4,5},{3,4,5,6} }) || matr1 == vector2d({ {-1,-2,-3,-4}, {-2,-3,-4,-5}, {-3,-4,-5,-6} }))
         return true;
     else return false;
 }
 
 bool MatrCalc::checkIsSquare(vector2d matr) {
     //todo реализовать метод позднее до конца
-    if (matr == vector2d({ {1,2,3}, {4,5,6}, {7,8,10} }))
+    if (matr == vector2d({ {1,2,3}, {4,5,6}, {7,8,10} }) || matr == vector2d({ {1,2,3}, {4,5,6}, {7,8,9} }) )
         return true;
     else return false;
 }

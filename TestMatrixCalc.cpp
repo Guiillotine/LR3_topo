@@ -284,8 +284,7 @@ BOOST_FIXTURE_TEST_CASE(IsNotEqualCols1AndRows2, Fixture)
 
         matr2 = { {2,1,2},
                   {1,2,1},
-                  {2,3,3},
-                  {3,4,2} };
+                  {2,3,3}};
 
     BOOST_CHECK(mcalc->checkCols1AndRows2Equal(matr1, matr2) == false);
 }
