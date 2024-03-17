@@ -39,7 +39,6 @@ BOOST_FIXTURE_TEST_CASE(AddRegToRegTest, Fixture)
 
     MATRIXES_CHECK_CLOSE(mcalc->add(matr1,matr2),result, 0.5);
 }
-
 BOOST_FIXTURE_TEST_CASE(AddRegToNegativeTest, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: Add regular matrix to negative matrix");
@@ -58,52 +57,51 @@ BOOST_FIXTURE_TEST_CASE(AddRegToNegativeTest, Fixture)
     MATRIXES_CHECK_CLOSE(mcalc->add(matr1, matr2), result, 0.5);
 }
 
+
 BOOST_FIXTURE_TEST_CASE(SubRegFromRegTest, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: Subtraction regular matrix from regular matrix");
-    vector2d matr1 = { {1,2,3,4},
-                       {5,6,7,8},
-                       {9,10,11,12} },
+    vector2d matr1 = { {1,2,1,2},
+                       {3,4,3,4},
+                       {5,6,5,6} },
 
             matr2 = { {1,1,2,2},
                       {2,2,3,3},
                       {4,4,5,5} },
 
-            result = { {0,1,1,2},
-                       {3,4,4,5},
-                       {5,6,6,7} };
+            result = { {0,1,-1,0},
+                       {1,2,0,51},
+                       {1,2,0,1} };
 
     MATRIXES_CHECK_CLOSE(mcalc->sub(matr1, matr2), result, 0.5);
 }
-
 BOOST_FIXTURE_TEST_CASE(SubNegativeFromRegTest, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: Subtraction negative matrix from regular matrix");
-    vector2d matr1 = { {1,2,3,4},
-                       {5,6,7,8},
-                       {9,10,11,12} },
+    vector2d matr1 = { {1,2,1,2},
+                       {3,4,3,4},
+                       {5,6,5,6} },
 
             matr2 = { {-1,-1,-2,-2},
                       {-2,-2,-3,-3},
                       {-4,-4,-5,-5} },
 
-            result = { {1,3,5,6},
-                       {7,8,10,11},
-                       {13,14,16,17} };
+            result = { {2,3,3,4},
+                       {5,6,6,7},
+                       {9,10,10,11} };
 
     MATRIXES_CHECK_CLOSE(mcalc->sub(matr1, matr2), result, 0.5);
 }
-
 BOOST_FIXTURE_TEST_CASE(SubEqualMatricesTest, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: Subtraction of equal matrices");
-    vector2d matr1 = { {1,2,3,4},
-                       {5,6,7,8},
-                       {9,10,11,12} },
+    vector2d matr1 = { {1,2,1,2},
+                       {3,4,3,4},
+                       {5,6,5,6} },
 
-            matr2 = {  {1,2,3,4},
-                       {5,6,7,8},
-                       {9,10,11,12} },
+            matr2 = { {1,2,1,2},
+                      {3,4,3,4},
+                      {5,6,5,6} },
 
             result = { {0,0,0,0},
                        {0,0,0,0},
@@ -111,6 +109,7 @@ BOOST_FIXTURE_TEST_CASE(SubEqualMatricesTest, Fixture)
 
     MATRIXES_CHECK_CLOSE(mcalc->sub(matr1, matr2), result, 0.5);
 }
+
 
 BOOST_FIXTURE_TEST_CASE(MultRegMatricesTest, Fixture)
 {
@@ -130,7 +129,6 @@ BOOST_FIXTURE_TEST_CASE(MultRegMatricesTest, Fixture)
 
     MATRIXES_CHECK_CLOSE(mcalc->mult(matr1, matr2), result, 0.5);
 }
-
 BOOST_FIXTURE_TEST_CASE(MultNegativeMatricesTest, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: Multiplication of negative matrices");
@@ -150,6 +148,7 @@ BOOST_FIXTURE_TEST_CASE(MultNegativeMatricesTest, Fixture)
     MATRIXES_CHECK_CLOSE(mcalc->mult(matr1, matr2), result, 0.5);
 }
 
+
 BOOST_FIXTURE_TEST_CASE(MultOnNum, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: Multiplying a matrix by a number");
@@ -164,7 +163,6 @@ BOOST_FIXTURE_TEST_CASE(MultOnNum, Fixture)
 
     MATRIXES_CHECK_CLOSE(mcalc->multOnNum(matr, num), result, 0.5);
 }
-
 BOOST_FIXTURE_TEST_CASE(MultOnNullNum, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: Multiplying a matrix by a null");
@@ -179,6 +177,7 @@ BOOST_FIXTURE_TEST_CASE(MultOnNullNum, Fixture)
 
     MATRIXES_CHECK_CLOSE(mcalc->multOnNum(matr, num), result, 0.5);
 }
+
 
 BOOST_FIXTURE_TEST_CASE(mairixT, Fixture)
 {
@@ -195,6 +194,7 @@ BOOST_FIXTURE_TEST_CASE(mairixT, Fixture)
     MATRIXES_CHECK_CLOSE(mcalc->T(matr), result, 0.5);
 }
 
+
 BOOST_FIXTURE_TEST_CASE(matrixDeterminant, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: Find the determinant of the matrix");
@@ -206,7 +206,6 @@ BOOST_FIXTURE_TEST_CASE(matrixDeterminant, Fixture)
 
     BOOST_CHECK_CLOSE(mcalc->det(matr), result, 0.5);
 }
-
 BOOST_FIXTURE_TEST_CASE(singularMatrixDeterminant, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: Find the determinant of the singular matrix");
@@ -233,20 +232,34 @@ BOOST_FIXTURE_TEST_CASE(findInverseMatrix, Fixture)
     MATRIXES_CHECK_CLOSE(mcalc->inverse(matr), result, 0.5);
 }
 
+
 // ÏÐÎÂÅÐÊÈ ÍÀ ÄÎÏÓÑÒÈÌÎÑÒÜ ÎÏÅÐÀÍÄÎÂ ÄËß ÂÛÏÎËÍÅÍÈß ÎÏÅÐÀÖÈÉ
 
 BOOST_FIXTURE_TEST_CASE(IsRowsAndColsNumEqual, Fixture)
 {
     BOOST_TEST_MESSAGE("TEST: The number of rows and columns of the matrixes is equal");
-    vector2d matr1 = { {1,2,3,4},
-                       {5,6,7,8},
-                       {9,10,11,12} },
+    vector2d matr1 = { {1,2,1,2},
+                       {3,4,3,4},
+                       {5,6,5,6} },
 
-            matr2 =  { {12,11,10,9},
-                       {8,7,6,5},
-                       {4,3,2,1} };
+             matr2 = { {1,1,1,1},
+                       {4,3,4,3},
+                       {0,0,0,0} };
 
     BOOST_CHECK(mcalc->checkRowsColsNumEqual(matr1,matr2) == true);
+}
+BOOST_FIXTURE_TEST_CASE(IsNotEqualRowsAndColsNumEqual, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: The number of rows and columns of the matrixes is not equal");
+    vector2d matr1 = { {1,2,3},
+                       {4,5,6},
+                       {7,8,9} },
+
+             matr2 = { {1,1,1,1},
+                       {4,3,4,3},
+                       {0,0,0,0} };
+
+    BOOST_CHECK(mcalc->checkRowsColsNumEqual(matr1, matr2) == false);
 }
 
 

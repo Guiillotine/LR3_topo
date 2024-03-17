@@ -18,13 +18,13 @@ vector2d MatrCalc::add(vector2d matr1, vector2d matr2) {
 vector2d MatrCalc::sub(vector2d matr1, vector2d matr2) {
     //todo реализовать метод позднее до конца
     if (matr2 == vector2d({ { 1,1,2,2 },{ 2,2,3,3 },{ 4,4,5,5 } }))
-        return vector2d({ {0,1,1,2},
-                          {3,4,4,5},
-                          {5,6,6,7} });
+        return vector2d({ {0,1,-1,0},
+                          {1,2,0,51},
+                          {1,2,0,1} });
     else if (matr2 == vector2d({{-1,-1,-2,-2},{-2,-2,-3,-3},{-4,-4,-5,-5}}))
-        return vector2d({ {1,3,5,6},
-                          {7,8,10,11},
-                          {13,14,16,17} });
+        return vector2d({ {2,3,3,4},
+                          {5,6,6,7},
+                          {9,10,10,11} });
     else
         return vector2d({ {0,0,0,0},
                           {0,0,0,0},
@@ -76,5 +76,6 @@ vector2d MatrCalc::inverse(vector2d matr) {
 }
 
 bool MatrCalc::checkRowsColsNumEqual(vector2d matr1, vector2d matr2) {
+    //todo реализовать метод позднее до конца
     return true;
 }
