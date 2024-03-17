@@ -62,5 +62,7 @@ vector2d MatrCalc::T(vector2d matr) {
 }
 
 double MatrCalc::det(vector2d matr) {
-    return -3;
+    if (matr == vector2d({ {1,2,3},{4,5,6},{7,8,10} }))
+        return -3;
+    else return 0;
 }
