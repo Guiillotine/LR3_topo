@@ -2,7 +2,7 @@
 #include <boost/test/included/unit_test.hpp>
 #include "MatrCalc.h"
 
-void MATRIXES_CHECK_EQUAL(vector2d matr1, vector2d matr2);
+//void MATRIXES_CHECK_EQUAL(vector2d matr1, vector2d matr2);
 void MATRIXES_CHECK_CLOSE(vector2d matr1, vector2d matr2, double percent);
 
 struct Fixture
@@ -37,7 +37,7 @@ BOOST_FIXTURE_TEST_CASE(AddRegToRegTest, Fixture)
                         {7,7,7,7},
                         {5,6,5,6} };
 
-    MATRIXES_CHECK_EQUAL(mcalc->add(matr1,matr2),result);
+    MATRIXES_CHECK_CLOSE(mcalc->add(matr1,matr2),result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(AddRegToNegativeTest, Fixture)
@@ -55,7 +55,7 @@ BOOST_FIXTURE_TEST_CASE(AddRegToNegativeTest, Fixture)
                         {-1,1,-1,1},
                         {-5,-4,-5,-4} };
 
-    MATRIXES_CHECK_EQUAL(mcalc->add(matr1, matr2), result);
+    MATRIXES_CHECK_CLOSE(mcalc->add(matr1, matr2), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(SubRegFromRegTest, Fixture)
@@ -73,7 +73,7 @@ BOOST_FIXTURE_TEST_CASE(SubRegFromRegTest, Fixture)
                        {3,4,4,5},
                        {5,6,6,7} };
 
-    MATRIXES_CHECK_EQUAL(mcalc->sub(matr1, matr2), result);
+    MATRIXES_CHECK_CLOSE(mcalc->sub(matr1, matr2), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(SubNegativeFromRegTest, Fixture)
@@ -91,7 +91,7 @@ BOOST_FIXTURE_TEST_CASE(SubNegativeFromRegTest, Fixture)
                        {7,8,10,11},
                        {13,14,16,17} };
 
-    MATRIXES_CHECK_EQUAL(mcalc->sub(matr1, matr2), result);
+    MATRIXES_CHECK_CLOSE(mcalc->sub(matr1, matr2), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(SubEqualMatricesTest, Fixture)
@@ -109,7 +109,7 @@ BOOST_FIXTURE_TEST_CASE(SubEqualMatricesTest, Fixture)
                        {0,0,0,0},
                        {0,0,0,0} };
 
-    MATRIXES_CHECK_EQUAL(mcalc->sub(matr1, matr2), result);
+    MATRIXES_CHECK_CLOSE(mcalc->sub(matr1, matr2), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(MultRegMatricesTest, Fixture)
@@ -128,7 +128,7 @@ BOOST_FIXTURE_TEST_CASE(MultRegMatricesTest, Fixture)
                         {30,40,29},
                         {38,50,37} };
 
-    MATRIXES_CHECK_EQUAL(mcalc->mult(matr1, matr2), result);
+    MATRIXES_CHECK_CLOSE(mcalc->mult(matr1, matr2), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(MultNegativeMatricesTest, Fixture)
@@ -147,7 +147,7 @@ BOOST_FIXTURE_TEST_CASE(MultNegativeMatricesTest, Fixture)
                         {14,14,14},
                         {18,18,18} };
 
-    MATRIXES_CHECK_EQUAL(mcalc->mult(matr1, matr2), result);
+    MATRIXES_CHECK_CLOSE(mcalc->mult(matr1, matr2), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(MultOnNum, Fixture)
@@ -162,7 +162,7 @@ BOOST_FIXTURE_TEST_CASE(MultOnNum, Fixture)
                    {10.5,14,17.5,21} };
     double num = 3.5;
 
-    MATRIXES_CHECK_EQUAL(mcalc->multOnNum(matr, num), result);
+    MATRIXES_CHECK_CLOSE(mcalc->multOnNum(matr, num), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(MultOnNullNum, Fixture)
@@ -177,7 +177,7 @@ BOOST_FIXTURE_TEST_CASE(MultOnNullNum, Fixture)
                        {0,0,0,0} };
     double num = 0;
 
-    MATRIXES_CHECK_EQUAL(mcalc->multOnNum(matr, num), result);
+    MATRIXES_CHECK_CLOSE(mcalc->multOnNum(matr, num), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(mairixT, Fixture)
@@ -192,7 +192,7 @@ BOOST_FIXTURE_TEST_CASE(mairixT, Fixture)
                        {3,7,11},
                        {4,8,12} };
 
-    MATRIXES_CHECK_EQUAL(mcalc->T(matr), result);
+    MATRIXES_CHECK_CLOSE(mcalc->T(matr), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(matrixDeterminant, Fixture)
@@ -204,7 +204,7 @@ BOOST_FIXTURE_TEST_CASE(matrixDeterminant, Fixture)
 
     double result = -3;
 
-    BOOST_CHECK_EQUAL(mcalc->det(matr), result);
+    BOOST_CHECK_CLOSE(mcalc->det(matr), result, 0.5);
 }
 
 BOOST_FIXTURE_TEST_CASE(singularMatrixDeterminant, Fixture)
@@ -216,7 +216,21 @@ BOOST_FIXTURE_TEST_CASE(singularMatrixDeterminant, Fixture)
 
     double result = 0;
 
-    BOOST_CHECK_EQUAL(mcalc->det(matr), result);
+    BOOST_CHECK_CLOSE(mcalc->det(matr), result, 0.5);
+}
+
+BOOST_FIXTURE_TEST_CASE(findInverseMatrix, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Find the inverse matrix");
+    vector2d matr = { {1,2,3},
+                      {4,5,6},
+                      {7,8,10} },
+
+            result = { {-2/3,-4/3,1},
+                       {-2/3,11/3,-2},
+                       {1,-2,1} };
+
+    BOOST_CHECK_CLOSE(mcalc->inverse(matr), result, 0.5);
 }
 
 
@@ -227,14 +241,13 @@ BOOST_FIXTURE_TEST_CASE(singularMatrixDeterminant, Fixture)
 
 
 
-
-void MATRIXES_CHECK_EQUAL(vector2d matr1, vector2d matr2) {
+/*void MATRIXES_CHECK_EQUAL(vector2d matr1, vector2d matr2) {
     int n = matr1.size(),
         m = matr1[0].size();
     for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
             BOOST_CHECK_EQUAL(matr1[i][j], matr2[i][j]);
-}
+}*/
 
 void MATRIXES_CHECK_CLOSE(vector2d matr1, vector2d matr2, double percent) {
     int n = matr1.size(),

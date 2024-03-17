@@ -55,6 +55,7 @@ vector2d MatrCalc::multOnNum(vector2d matr, double num) {
 }
 
 vector2d MatrCalc::T(vector2d matr) {
+    //todo реализовать метод позднее до конца
     return vector2d({ {1,5,9},
                       {2,6,10},
                       {3,7,11},
@@ -62,6 +63,7 @@ vector2d MatrCalc::T(vector2d matr) {
 }
 
 double MatrCalc::det(vector2d matr) {
+    //todo реализовать метод позднее до конца
     if (matr == vector2d({ {1,2,3},{4,5,6},{7,8,10} }))
         return -3;
     else return 0;
