@@ -97,3 +97,8 @@ bool MatrCalc::checkIsSquare(vector2d matr) {
         return true;
     else return false;
 }
+
+bool MatrCalc::checkIsSingular(vector2d matr) {
+    //todo реализовать метод позднее до конца
+    return true;
+}
