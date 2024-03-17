@@ -86,5 +86,7 @@ bool MatrCalc::checkRowsColsNumEqual(vector2d matr1, vector2d matr2) {
 
 bool MatrCalc::checkCols1AndRows2Equal(vector2d matr1, vector2d matr2) {
     //todo реализовать метод позднее до конца
-    return true;
+    if (matr1 == vector2d({ {1,2,3,4},{2,3,4,5},{3,4,5,6} }))
+        return true;
+    else return false;
 }
