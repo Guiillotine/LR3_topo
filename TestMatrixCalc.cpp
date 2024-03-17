@@ -2,7 +2,6 @@
 #include <boost/test/included/unit_test.hpp>
 #include "MatrCalc.h"
 
-//void MATRIXES_CHECK_EQUAL(vector2d matr1, vector2d matr2);
 void MATRIXES_CHECK_CLOSE(vector2d matr1, vector2d matr2, double percent);
 
 struct Fixture
@@ -331,20 +330,6 @@ BOOST_FIXTURE_TEST_CASE(IsNotSingular, Fixture)
 }
 
 
-
-
-
-
-
-
-/*void MATRIXES_CHECK_EQUAL(vector2d matr1, vector2d matr2) {
-    int n = matr1.size(),
-        m = matr1[0].size();
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            BOOST_CHECK_EQUAL(matr1[i][j], matr2[i][j]);
-}*/
-
 void MATRIXES_CHECK_CLOSE(vector2d matr1, vector2d matr2, double percent) {
     int n = matr1.size(),
         m = matr1[0].size();
@@ -352,8 +337,3 @@ void MATRIXES_CHECK_CLOSE(vector2d matr1, vector2d matr2, double percent) {
         for (int j = 0; j < m; j++)
             BOOST_CHECK_CLOSE(matr1[i][j], matr2[i][j], percent);
 }
-
-
-//	BOOST_CHECK_CLOSE(, , );
-//  BOOST_CHECK_EQUAL(, );
-//  BOOST_CHECK();
