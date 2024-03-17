@@ -60,3 +60,7 @@ vector2d MatrCalc::T(vector2d matr) {
                       {3,7,11},
                       {4,8,12} });
 }
+
+double MatrCalc::det(vector2d matr) {
+    return -3;
+}

@@ -204,7 +204,7 @@ BOOST_FIXTURE_TEST_CASE(matrixDeterminant, Fixture)
 
     double result = -3;
 
-    MATRIXES_CHECK_EQUAL(mcalc->det(matr), result);
+    BOOST_CHECK_EQUAL(mcalc->det(matr), result);
 }
 
 
