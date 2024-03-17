@@ -55,6 +55,23 @@ BOOST_FIXTURE_TEST_CASE(AddRegToNegativeTest, Fixture)
 
     MATRIXES_CHECK_CLOSE(mcalc->add(matr1, matr2), result, 0.5);
 }
+BOOST_FIXTURE_TEST_CASE(AddRegToSparseTest, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Add sparse matrix to regular matrix");
+    vector2d matr1 = { {1,2,1,2},
+                       {3,4,3,4},
+                       {5,6,5,6} },
+
+        matr2 = { {0,1,0,0},
+                  {0,0,0,0},
+                  {0,0,2,0} },
+
+        result = { {1,3,1,2},
+                   {3,4,3,4},
+                   {5,6,7,6} };
+
+    MATRIXES_CHECK_CLOSE(mcalc->add(matr1, matr2), result, 0.5);
+}
 
 
 BOOST_FIXTURE_TEST_CASE(SubRegFromRegTest, Fixture)
