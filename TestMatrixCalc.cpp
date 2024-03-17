@@ -172,9 +172,9 @@ BOOST_FIXTURE_TEST_CASE(MultOnNullNum, Fixture)
                       {2,3,4,5},
                       {3,4,5,6} },
 
-        result = { {0,0,0,0},
-                   {0,0,0,0},
-                   {0,0,0,0} };
+            result = { {0,0,0,0},
+                       {0,0,0,0},
+                       {0,0,0,0} };
     double num = 0;
 
     MATRIXES_CHECK_EQUAL(mcalc->multOnNum(matr, num), result);
@@ -195,7 +195,17 @@ BOOST_FIXTURE_TEST_CASE(mairixT, Fixture)
     MATRIXES_CHECK_EQUAL(mcalc->T(matr), result);
 }
 
+BOOST_FIXTURE_TEST_CASE(matrixDeterminant, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Find the determinant of the matrix");
+    vector2d matr = { {1,2,3},
+                      {4,5,6},
+                      {7,8,10} };
 
+    double result = -3;
+
+    MATRIXES_CHECK_EQUAL(mcalc->det(matr), result);
+}
 
 
 
