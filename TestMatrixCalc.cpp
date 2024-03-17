@@ -233,6 +233,21 @@ BOOST_FIXTURE_TEST_CASE(findInverseMatrix, Fixture)
     MATRIXES_CHECK_CLOSE(mcalc->inverse(matr), result, 0.5);
 }
 
+// опнбепйх мю дносярхлнярэ ноепюмднб дкъ бшонкмемхъ ноепюжхи
+
+BOOST_FIXTURE_TEST_CASE(IsRowsAndColsNumEqual, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Is the number of rows and columns of the matrixes equal");
+    vector2d matr1 = { {1,2,3,4},
+                       {5,6,7,8},
+                       {9,10,11,12} },
+
+            matr2 =  { {12,11,10,9},
+                       {8,7,6,5},
+                       {4,3,2,1} };
+
+    BOOST_CHECK(checkRowsColsNumEqual(matr1,matr2) == true);
+}
 
 
 
