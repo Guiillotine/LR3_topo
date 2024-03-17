@@ -308,6 +308,16 @@ BOOST_FIXTURE_TEST_CASE(IsNotSquare, Fixture)
     BOOST_CHECK(mcalc->checkIsSquare(matr) == false);
 }
 
+BOOST_FIXTURE_TEST_CASE(IsSingular, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: The matrix is singular");
+    vector2d matr = { {1,2,3},
+                      {4,5,6},
+                      {7,8,9} };
+
+    BOOST_CHECK(mcalc->checkIsSingular(matr) == true);
+}
+
 
 
 
