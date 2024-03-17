@@ -74,3 +74,7 @@ vector2d MatrCalc::inverse(vector2d matr) {
                       {-2 / 3,11 / 3,-2},
                       {1,-2,1} });
 }
+
+bool MatrCalc::checkRowsColsNumEqual(vector2d matr1, vector2d matr2) {
+    return true;
+}
