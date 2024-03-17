@@ -207,6 +207,19 @@ BOOST_FIXTURE_TEST_CASE(matrixDeterminant, Fixture)
     BOOST_CHECK_EQUAL(mcalc->det(matr), result);
 }
 
+BOOST_FIXTURE_TEST_CASE(singularMatrixDeterminant, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: Find the determinant of the singular matrix");
+    vector2d matr = { {1,2,3},
+                      {4,5,6},
+                      {7,8,9} };
+
+    double result = 0;
+
+    BOOST_CHECK_EQUAL(mcalc->det(matr), result);
+}
+
+
 
 
 
