@@ -262,6 +262,21 @@ BOOST_FIXTURE_TEST_CASE(IsNotEqualRowsAndColsNumEqual, Fixture)
     BOOST_CHECK(mcalc->checkRowsColsNumEqual(matr1, matr2) == false);
 }
 
+BOOST_FIXTURE_TEST_CASE(IsEqualCols1AndRows2, Fixture)
+{
+    BOOST_TEST_MESSAGE("TEST: The number of columns of the matrix 1 and the number of rows of the matrix 2 is equal");
+    vector2d matr1 = { {1,2,3,4},
+                       {2,3,4,5},
+                       {3,4,5,6} },
+
+             matr2 = { {2,1,2},
+                       {1,2,1},
+                       {2,3,3},
+                       {3,4,2} };
+
+    BOOST_CHECK(mcalc->checkCols1AndRows2Equal(matr1, matr2) == true);
+}
+
 
 
 
