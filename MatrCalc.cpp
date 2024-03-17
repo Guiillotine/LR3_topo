@@ -90,3 +90,8 @@ bool MatrCalc::checkCols1AndRows2Equal(vector2d matr1, vector2d matr2) {
         return true;
     else return false;
 }
+
+bool MatrCalc::checkIsSquare(vector2d matr) {
+    //todo реализовать метод позднее до конца
+    return true;
+}

@@ -17,6 +17,7 @@ public:
 	vector2d inverse(vector2d matr);
 	bool checkRowsColsNumEqual(vector2d matr1, vector2d matr2);
 	bool checkCols1AndRows2Equal(vector2d matr1, vector2d matr2);
+	bool checkIsSquare(vector2d matr);
 
 private:
 
